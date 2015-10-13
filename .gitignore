@@ -1,0 +1,8 @@
+.DS_Store
+.sass-cache
+*.css.map
+fire_app_log.txt
+build_*
+config.rb
+*.erb
+sass
