@@ -1,0 +1,328 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>閃亮星電視大賞 - Fanily粉絲玩樂</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<!--[if IE 6]>
+<script type="text/javascript" src="js/fixpng.js"></script>
+<![endif]-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="js/cookie.min.js"></script>
+<style>
+#circularG{position:fixed;top:50%;left:50%;margin:-64px 0 0 -64px;width:128px;height:128px}.circularG{position:absolute;background-color:#ffb02a;width:29px;height:29px;-moz-border-radius:19px;-moz-animation-name:bounce_circularG;-moz-animation-duration:.64s;-moz-animation-iteration-count:infinite;-moz-animation-direction:normal;-webkit-border-radius:19px;-webkit-animation-name:bounce_circularG;-webkit-animation-duration:.64s;-webkit-animation-iteration-count:infinite;-webkit-animation-direction:normal;-ms-border-radius:19px;-ms-animation-name:bounce_circularG;-ms-animation-duration:.64s;-ms-animation-iteration-count:infinite;-ms-animation-direction:normal;-o-border-radius:19px;-o-animation-name:bounce_circularG;-o-animation-duration:.64s;-o-animation-iteration-count:infinite;-o-animation-direction:normal;border-radius:19px;animation-name:bounce_circularG;animation-duration:.64s;animation-iteration-count:infinite;animation-direction:normal}#circularG_1{left:0;top:50px;-moz-animation-delay:.24s;-webkit-animation-delay:.24s;-ms-animation-delay:.24s;-o-animation-delay:.24s;animation-delay:.24s}#circularG_2{left:14px;top:14px;-moz-animation-delay:.32s;-webkit-animation-delay:.32s;-ms-animation-delay:.32s;-o-animation-delay:.32s;animation-delay:.32s}#circularG_3{top:0;left:50px;-moz-animation-delay:.4s;-webkit-animation-delay:.4s;-ms-animation-delay:.4s;-o-animation-delay:.4s;animation-delay:.4s}#circularG_4{right:14px;top:14px;-moz-animation-delay:.48s;-webkit-animation-delay:.48s;-ms-animation-delay:.48s;-o-animation-delay:.48s;animation-delay:.48s}#circularG_5{right:0;top:50px;-moz-animation-delay:.56s;-webkit-animation-delay:.56s;-ms-animation-delay:.56s;-o-animation-delay:.56s;animation-delay:.56s}#circularG_6{right:14px;bottom:14px;-moz-animation-delay:.64s;-webkit-animation-delay:.64s;-ms-animation-delay:.64s;-o-animation-delay:.64s;animation-delay:.64s}#circularG_7{left:50px;bottom:0;-moz-animation-delay:.72s;-webkit-animation-delay:.72s;-ms-animation-delay:.72s;-o-animation-delay:.72s;animation-delay:.72s}#circularG_8{left:14px;bottom:14px;-moz-animation-delay:.8s;-webkit-animation-delay:.8s;-ms-animation-delay:.8s;-o-animation-delay:.8s;animation-delay:.8s}@-moz-keyframes bounce_circularG{0%{-moz-transform:scale(1)}100%{-moz-transform:scale(.3)}}@-webkit-keyframes bounce_circularG{0%{-webkit-transform:scale(1)}100%{-webkit-transform:scale(.3)}}@-ms-keyframes bounce_circularG{0%{-ms-transform:scale(1)}100%{-ms-transform:scale(.3)}}@-o-keyframes bounce_circularG{0%{-o-transform:scale(1)}100%{-o-transform:scale(.3)}}@keyframes bounce_circularG{0%{transform:scale(1)}100%{transform:scale(.3)}}
+
+.event { position: relative;}
+.vote_panel { position: relative; z-index: 10; }
+.login_edit { width: 400px; margin: 30px auto ;background-color: #fff; padding: 20px 50px;
+-moz-box-shadow: 1px 1px 1px rgba(34, 25, 25, 0.2);
+-webkit-box-shadow: 1px 1px 1px rgba(34, 25, 25, 0.2);
+box-shadow: 1px 1px 1px rgba(34, 25, 25, 0.2);
+border-radius: 5px 5px 5px 5px;
+}
+.login_edit h2{ color: #ff9921; font: 18px/120% Arial, "微軟正黑體"; margin-bottom: 10px; }
+.login_edit table{ color: #696969;   }
+.login_edit th{ text-align: left; padding: 5px 0px; font: 18px/140% Arial, "微軟正黑體";}
+.login_edit td{ padding: 5px 0; color: #8A8A8A; font: 15px/140% Arial, "微軟正黑體";}
+.login_edit input, .edit select, .edit textarea{ border: none; font: 15px/140% Arial, "微軟正黑體"; color: #888; padding: 5px 10px;border-radius: 3px 3px 3px 3px;
+box-shadow: 0 0 1px rgba(0, 0, 0, 0.5) inset; background-color: #F3F3F3; }
+.login_edit .bt_login { vertical-align: middle; background-color: #ffb02a; color: #fff; border: none;font: 18px/120% Arial, "微軟正黑體"; cursor: pointer;}
+.picimg { float: left; margin-right: 10px;}
+.fb_login { padding-top: 20px; border-top: 1px solid #ddd; margin-top: 10px;}
+.note-link > div { margin: 20px 0;color: #FFF;font-size:18px;text-align:center; }
+</style>
+</head>
+<body class="jump">
+<script src="js/vote_data.min.js"></script>
+<script>
+$(function(){
+    var open = function(id){
+        $('#circularG').hide();
+        $('.vote_panel').hide();
+        $('.success_panel').parents('body').css('background','#322a24');
+
+        $(id).show();
+        }
+      , open_loading = function(){
+        $('.vote_panel').hide();
+        $('#circularG').show();
+        }
+      , vote_api = '//star-award-api.fanily.tw/'
+      , vote_key = 'member-vote-2015q3'
+      , vote_data = window.vote_data
+      , vote_hash = window.location.hash
+      ;
+    if (!/^#(group[0-9]{1,2})-item[0-9]{1,2}$/i.test(vote_hash)) {
+        open('#vote_error_404');
+        return ;
+    }
+    var vote_group = /^#(group[0-9]{1,2})-item[0-9]{1,2}$/i.exec(vote_hash)[1]
+      , vote_item = /^#group[0-9]{1,2}-(item[0-9]{1,2})$/i.exec(vote_hash)[1];
+    var vote_link = vote_api + vote_key + '/vote/' + vote_group + '/' + vote_item;
+    var do_vote = function(vote_token){
+        $.get(vote_link, {
+            "token": vote_token
+        }).done(function(data){
+            if (data.token) {
+                window.vote_token = vote_token = data.token;
+            }
+            if (data.error) {
+                if (data.status == '421') {
+                    open('#vote_remind');
+                } else if (data.status == '418') {
+                    open('#vote_done_418');
+                }
+            } else {
+                open('#vote_done');
+            }
+        }).fail(function(e){
+            delete_token();
+            open('#vote_login');
+        });
+    };
+    var write_token = function(vote_token){
+        window.vote_token = vote_token;
+        docCookies.setItem('vote_token', vote_token);
+    }
+    var delete_token = function(){
+        window.vote_token = undefined;
+        docCookies.removeItem('vote_token');
+    }
+    $('#account').keyup(function(e){
+        if (e.keyCode == 13 && $(this).val()) {
+            $('#password').focus();
+        }
+    });
+    $('#password').keyup(function(e){
+        if (e.keyCode == 13 && $(this).val()) {
+            $('#login-button').click();
+        }
+    });
+    $('#login-button').click(function(){
+        var account = $('#account').val();
+        var password = $('#password').val();
+        if (!account) {
+            alert('請輸入帳號！');
+            return false;
+        }
+        if (!password) {
+            alert('請輸入密碼！');
+            return false;
+        }
+        $('#account').prop('disabled', true);
+        $('#password').prop('disabled', true);
+        $.post(vote_api + 'token', {
+            "account": account,
+            "password": password
+        }).done(function(data){
+            if (data.token) {
+                write_token(data.token);
+            }
+            do_vote(data.token);
+        }).fail(function(output){
+            var error = '';
+            switch(output.status){
+                case 401 :
+                case 403 :
+                    error = '使用者帳號或密碼錯誤。';
+                    break;
+                case 405 :
+                    error = '密碼錯誤次數過多。';
+                    break;
+                case 404 :
+                    error = '使用者帳號或密碼錯誤。';
+                    break;
+                case 406 :
+                    var data = $.parseJSON(output.responseText);
+                    error = '使用者帳號尚未啟用，請至您的 email 信箱點選啟用連結。';
+                    alert(error);
+                    window.open('http://www.fanily.tw/auth/resendEmail?member_id='+encodeURIComponent(data.member_id)+'&hash='+encodeURIComponent(data.hash)+'&expire_time='+encodeURIComponent(data.expire_time), '_blank');
+                    return ;
+                default :
+                    error = '系統錯誤。';
+                    break;
+            }
+            alert(error);
+        }).always(function(){
+            $('#account').prop('disabled', false);
+            $('#password').prop('disabled', false).val('');
+        });
+        return false;
+    });
+    $('#fblogin-button').click(function(){
+        var link = vote_api + 'fb?return_url=' + encodeURIComponent(window.top.location.origin + window.top.location.pathname + '?return_pop=' + encodeURIComponent(window.location.href));
+        window.top.location.href = link;
+        return false;
+    });
+    if ( !vote_data[vote_group] || !vote_data[vote_group][vote_item] ) {
+        delete_token();
+        open('#vote_login');
+        return ;
+    }
+    if (!window.vote_token) {
+        var vote_token = docCookies.getItem('vote_token');
+        if (vote_token) {
+            write_token(vote_token);
+        } else {
+            delete_token();
+            open('#vote_login');
+            return ;
+        }
+    }
+    do_vote(window.vote_token);
+})
+</script>
+<div class="popup-wrapper">
+<div class="event">
+
+<div id="circularG">
+<div id="circularG_1" class="circularG">
+</div>
+<div id="circularG_2" class="circularG">
+</div>
+<div id="circularG_3" class="circularG">
+</div>
+<div id="circularG_4" class="circularG">
+</div>
+<div id="circularG_5" class="circularG">
+</div>
+<div id="circularG_6" class="circularG">
+</div>
+<div id="circularG_7" class="circularG">
+</div>
+<div id="circularG_8" class="circularG">
+</div>
+</div>
+
+<div id="vote_info" class="vote_panel" style="display:none">
+    <div class="note-content">
+        <h1>活動還沒開始或已結束囉！</h1>
+        <div class="note-link" style="width:300px;">
+            <div style="width:250px;">
+            活動時間：即日起至09月21日晚上11點59分止<br />
+            Fanily所舉辦的2015年度最盛大「閃亮星電視大賞」票選歡迎大家一起來投票
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="vote_error" class="vote_panel" style="display:none">
+    <div class="note-content">
+        <h1 style="color:#00ffff">您帳號錯誤，請稍後再試！</h1>
+    </div>
+</div>
+
+<div id="vote_error_404" class="vote_panel" style="display:none">
+    <div class="note-content">
+        <h1 style="color:#00ffff">系統錯誤！</h1>
+    </div>
+</div>
+
+<div id="vote_done_418" class="vote_panel success_panel" style="display:none">
+    <div class="note-content" style="padding-top:16px;">
+        <h1>你今天已經支持過他了！</h1>
+        <p>記得每天都能投三票，一起揪朋友來支持吧！</P>
+    </div>
+    <div class="note-link">
+    <div>分享到Facebook或微博</div>
+        <a class="fb" href="http://www.facebook.com/sharer/sharer.php?u=http://star-award.fanily.tw/" target="_blank"><span>FB</span></a>
+        <a class="wb" href="http://v.t.sina.com.cn/share/share.php?title=Fanily所舉辦的2015年度最盛大「閃亮星電視大賞」票選歡迎大家一起來投票&amp;url=http://star-award.fanily.tw/" target="_blank"><span>WEIBO</span></a>
+    </div>
+    <div class="opening-banner-div">
+        <a href="http://www.fanily.tw/opening" target="_blank"><img src="/img/opening-banner.jpg"></a>
+    </div>
+    <div style="clear:both;"></div>
+    <div style="width:470px;margin:12px auto 12px auto;">
+        <!-- [Vote] 結果視窗底部橫幅 -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:468px;height:60px"
+             data-ad-client="ca-pub-4160647210409809"
+             data-ad-slot="6333321574"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+</div>
+
+<div id="vote_done" class="vote_panel success_panel" style="display:none">
+    <div class="note-content">
+        <h1>投票成功！</h1>
+        <p>記得每天都能投三票，一起揪朋友來支持吧！</P>
+    </div>
+    <div class="note-link">
+    <div>分享到Facebook或微博</div>
+        <a class="fb" href="http://www.facebook.com/sharer/sharer.php?u=http://star-award.fanily.tw/" target="_blank"><span>FB</span></a>
+        <a class="wb" href="http://v.t.sina.com.cn/share/share.php?title=Fanily所舉辦的2015年度最盛大「閃亮星電視大賞」票選歡迎大家一起來投票&amp;url=http://star-award.fanily.tw/" target="_blank"><span>WEIBO</span></a>
+    </div>
+    <div class="opening-banner-div">
+        <a href="http://www.fanily.tw/opening" target="_blank"><img src="/img/opening-banner.jpg"></a>
+    </div>
+    <div style="clear:both;"></div>
+    <div style="width:470px;margin:12px auto 12px auto;">
+        <!-- [Vote] 結果視窗底部橫幅 -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:468px;height:60px"
+             data-ad-client="ca-pub-4160647210409809"
+             data-ad-slot="6333321574"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+</div>
+
+<div id="vote_login" class="vote_panel" style="display:none;">
+    <div class="login_edit">
+        <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <th scope="row">&gt;&gt; Fanily帳號</th>
+          </tr>
+          <tr>
+            <td><input id="account" class="input_txt1" type="text"></td>
+          </tr>
+          <tr>
+            <th scope="row">&gt;&gt; 密碼</th>
+          </tr>
+          <tr>
+            <td><input id="password" class="input_txt1" type="password"></td>
+          </tr>
+          <tr>
+            <td><input type="button" id="login-button" value="登入會員" class="bt_login">
+              <input type="button" value="忘記密碼" class="bt_login" onclick="window.open('http://www.fanily.tw/auth/forgetPassword','_blank');">
+              <input type="button" value="加入會員" class="bt_login" onclick="window.open('http://www.fanily.tw/member/signUp','_blank');">
+          </td></tr>
+          <tr id="FBArea">
+            <td><div class="fb_login"><a href="#" id="fblogin-button"><img src="img/bt_fb.jpg" border="0"></a></div></td>
+          </tr>
+        </table>
+    </div>
+</div>
+
+<div id="vote_remind" class="vote_panel success_panel" style="display:none;">
+    <div class="note-content">
+        <h1>您今日已投票超過三次囉！</h1>
+        <p>記得每天都能投三票，一起揪朋友來支持吧！</P>
+    </div>
+    <div class="note-link">
+        <div>分享到Facebook或微博</div>
+        <a class="fb" href="http://www.facebook.com/sharer/sharer.php?u=http://star-award.fanily.tw/" target="_blank"><span>FB</span></a>
+        <a class="wb" href="http://v.t.sina.com.cn/share/share.php?title=Fanily所舉辦的2015年度最盛大「閃亮星電視大賞」票選歡迎大家一起來投票&amp;url=http://star-award.fanily.tw/" target="_blank"><span>WEIBO</span></a>
+    </div>
+    <div class="opening-banner-div">
+        <a href="http://www.fanily.tw/opening" target="_blank"><img src="/img/opening-banner.jpg"></a>
+    </div>
+    <div style="clear:both;"></div>
+    <div style="width:470px;margin:12px auto 12px auto;">
+        <!-- [Vote] 結果視窗底部橫幅 -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:468px;height:60px"
+             data-ad-client="ca-pub-4160647210409809"
+             data-ad-slot="6333321574"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+</div>
+
+</div>
+</div>  　　　　
+</body>
+</html>

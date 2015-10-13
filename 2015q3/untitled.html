@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>最受歡迎的舶來綜藝節目 - 閃亮星電視大賞 - Fanily粉絲玩樂</title>
+<%= render :partial => "share/include" %>
+</head>
+<body>
+<%= render :partial => "share/fb_sdk" %>
+<div class="container">
+<div class="container2">
+<div class="container3">
+	<%= render :partial => "share/header" %>
+	<div class="main vote-main">
+		<%= render :partial => "share/menu" %>
+		<%= render :partial => "share/ad_1" %>
+	<div class="main2">
+		<div class="column-list-title"><img src="img/title-10.png"></div>
+		<div class="column">
+		<ul id="group"></ul>
+		<a href="http://www.fanily.tw/post/11e53b611769ac209aa342010af07fd1" class="more-btn" target="_blank">
+			看更多關於最受歡迎的舶來綜藝節目<span class="glyphicons glyphicons-play"></span>
+		</a>
+		<script type="text/javascript">
+		(function() {
+			var $ = window.jQuery;
+			$(function(){ $(window).trigger('vote-page-refresh', 'group9'); });
+		})();
+		</script>
+		<div class="fb-comments" data-href="http://star-award.fanily.tw/201503/group9" data-width="900" data-numposts="10" data-colorscheme="light"></div>
+		</div>
+	</div><!--main2-->
+		<%= render :partial => "share/ad_2" %>
+	</div><!--main-->
+	<div><p id="back-top"><a href="#header"><span></span>&#9650; TOP</a></p></div><!--浮動top-->
+	<%= render :partial => "share/footer" %>
+</div><!--container3-->
+</div><!--container2-->
+</div>
+</body>
+</html>
