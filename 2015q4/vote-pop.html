@@ -1,8 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!doctype html>
+<html>
 <head>
 <title>金馬閃亮星電影大賞 - Fanily粉絲玩樂</title>
-<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/style.css?time=1444902762" rel="stylesheet" type="text/css" />
 <!--[if IE 6]>
 <script type="text/javascript" src="js/fixpng.js"></script>
 <![endif]-->
@@ -33,7 +33,7 @@ box-shadow: 0 0 1px rgba(0, 0, 0, 0.5) inset; background-color: #F3F3F3; }
 </head>
 <body class="jump">
 <script src="js/moment.js"></script>
-<script src="js/vote_data.js"></script>
+<script src="js/vote_data.js?time=1444902762"></script>
 <script>
 $(function(){
     var open = function(id){
@@ -134,7 +134,7 @@ $(function(){
                     var data = $.parseJSON(output.responseText);
                     error = '使用者帳號尚未啟用，請至您的 email 信箱點選啟用連結。';
                     alert(error);
-                    window.open('http://fanily.tw/auth/resendEmail?member_id='+encodeURIComponent(data.member_id)+'&hash='+encodeURIComponent(data.hash)+'&expire_time='+encodeURIComponent(data.expire_time), '_blank');
+                    window.open('https://www.fanily.tw/auth/resendEmail?member_id='+encodeURIComponent(data.member_id)+'&hash='+encodeURIComponent(data.hash)+'&expire_time='+encodeURIComponent(data.expire_time), '_blank');
                     return ;
                 default :
                     error = '系統錯誤。';
@@ -223,8 +223,8 @@ $(function(){
     </div>
     <div class="note-link">
     <div>分享到Facebook或微博</div>
-        <a class="fb" href="http://www.facebook.com/sharer/sharer.php?u=http://star-award.fanily.tw/" target="_blank"><span>FB</span></a>
-        <a class="wb" href="http://v.t.sina.com.cn/share/share.php?title=【Fanilyx金馬獎】2015金馬得主觀眾預測「閃亮星電影大賞」歡迎大家一起來票選&amp;url=http://star-award.fanily.tw/" target="_blank"><span>WEIBO</span></a>
+        <a class="fb" href="http://www.facebook.com/sharer/sharer.php?u=http://star-award.fanily.tw/2015q4/" target="_blank"><span>FB</span></a>
+        <a class="wb" href="http://v.t.sina.com.cn/share/share.php?title=【Fanilyx金馬獎】2015金馬得主觀眾預測「閃亮星電影大賞」歡迎大家一起來票選&amp;url=http://star-award.fanily.tw/2015q4/" target="_blank"><span>WEIBO</span></a>
     </div>
     <div style="clear:both;"></div>
     <div style="width:470px;margin:12px auto 12px auto;">
@@ -246,8 +246,8 @@ $(function(){
     </div>
     <div class="note-link">
     <div>分享到Facebook或微博</div>
-        <a class="fb" href="http://www.facebook.com/sharer/sharer.php?u=http://star-award.fanily.tw/" target="_blank"><span>FB</span></a>
-        <a class="wb" href="http://v.t.sina.com.cn/share/share.php?title=【Fanilyx金馬獎】2015金馬得主觀眾預測「閃亮星電影大賞」歡迎大家一起來票選&amp;url=http://star-award.fanily.tw/" target="_blank"><span>WEIBO</span></a>
+        <a class="fb" href="http://www.facebook.com/sharer/sharer.php?u=http://star-award.fanily.tw/2015q4/" target="_blank"><span>FB</span></a>
+        <a class="wb" href="http://v.t.sina.com.cn/share/share.php?title=【Fanilyx金馬獎】2015金馬得主觀眾預測「閃亮星電影大賞」歡迎大家一起來票選&amp;url=http://star-award.fanily.tw/2015q4/" target="_blank"><span>WEIBO</span></a>
     </div>
     <div style="clear:both;"></div>
     <div style="width:470px;margin:12px auto 12px auto;">
@@ -279,8 +279,8 @@ $(function(){
           </tr>
           <tr>
             <td><input type="button" id="login-button" value="登入會員" class="bt_login">
-              <input type="button" value="忘記密碼" class="bt_login" onclick="window.open('http://fanily.tw/auth/forgetPassword','_blank');">
-              <input type="button" value="加入會員" class="bt_login" onclick="window.open('http://fanily.tw/member/signUp','_blank');">
+              <input type="button" value="忘記密碼" class="bt_login" onclick="window.open('https://www.fanily.tw/auth/forgetPassword','_blank');">
+              <input type="button" value="加入會員" class="bt_login" onclick="window.open('https://www.fanily.tw/member/signUp','_blank');">
           </td></tr>
           <tr id="FBArea">
             <td><div class="fb_login"><a href="#" id="fblogin-button"><img src="img/bt_fb.jpg" border="0"></a></div></td>
@@ -296,8 +296,8 @@ $(function(){
     </div>
     <div class="note-link">
         <div>分享到Facebook或微博</div>
-        <a class="fb" href="http://www.facebook.com/sharer/sharer.php?u=http://star-award.fanily.tw/" target="_blank"><span>FB</span></a>
-        <a class="wb" href="http://v.t.sina.com.cn/share/share.php?title=【Fanilyx金馬獎】2015金馬得主觀眾預測「閃亮星電影大賞」歡迎大家一起來票選&amp;url=http://star-award.fanily.tw/" target="_blank"><span>WEIBO</span></a>
+        <a class="fb" href="http://www.facebook.com/sharer/sharer.php?u=http://star-award.fanily.tw/2015q4/" target="_blank"><span>FB</span></a>
+        <a class="wb" href="http://v.t.sina.com.cn/share/share.php?title=【Fanilyx金馬獎】2015金馬得主觀眾預測「閃亮星電影大賞」歡迎大家一起來票選&amp;url=http://star-award.fanily.tw/2015q4/" target="_blank"><span>WEIBO</span></a>
     </div>
     <div style="clear:both;"></div>
     <div style="width:470px;margin:12px auto 12px auto;">
