@@ -36,11 +36,8 @@ box-shadow: 0 0 1px rgba(0, 0, 0, 0.5) inset; background-color: #F3F3F3; }
 <script src="js/vote_data.js?time=1445528389"></script>
 <script>
 $(function(){
-    var banner_end = moment("2015-10:30 23:59:59").format('X')
-        , now = moment().format('X');
-    if (now <= banner_end) {
-        $('.vote-banner').addClass('show');
-    }
+    var n = Math.floor((Math.random()*2)+1);
+    $('.vote-banner-'+n).addClass('show');
 
     var open = function(id){
         $('#circularG').hide();
@@ -233,8 +230,11 @@ $(function(){
         <a class="wb" href="http://v.t.sina.com.cn/share/share.php?title=【Fanilyx金馬獎】2015金馬得主觀眾預測「閃亮星電影大賞」歡迎大家一起來票選&amp;url=http://star-award.fanily.tw/2015q4/" target="_blank"><span>WEIBO</span></a>
     </div>
     <div style="clear:both;"></div>
-    <div class="vote-banner">
+    <div class="vote-banner vote-banner-1">
         <a href="https://www.fanily.tw/post/11e57497e3e6e7329e1542010af01a54" target="_blank"><img src="img/vote-banner.png"></a>
+    </div>
+    <div class="vote-banner vote-banner-2">
+        <a href="https://www.fanily.tw/group/i-cheesecake" target="_blank"><img src="img/vote-banner-2.png"></a>
     </div>
 </div>
 
@@ -249,8 +249,11 @@ $(function(){
         <a class="wb" href="http://v.t.sina.com.cn/share/share.php?title=【Fanilyx金馬獎】2015金馬得主觀眾預測「閃亮星電影大賞」歡迎大家一起來票選&amp;url=http://star-award.fanily.tw/2015q4/" target="_blank"><span>WEIBO</span></a>
     </div>
     <div style="clear:both;"></div>
-    <div class="vote-banner">
+    <div class="vote-banner vote-banner-1">
         <a href="https://www.fanily.tw/post/11e57497e3e6e7329e1542010af01a54" target="_blank"><img src="img/vote-banner.png"></a>
+    </div>
+    <div class="vote-banner vote-banner-2">
+        <a href="https://www.fanily.tw/group/i-cheesecake" target="_blank"><img src="img/vote-banner-2.png"></a>
     </div>
 </div>
 
@@ -292,8 +295,11 @@ $(function(){
         <a class="wb" href="http://v.t.sina.com.cn/share/share.php?title=【Fanilyx金馬獎】2015金馬得主觀眾預測「閃亮星電影大賞」歡迎大家一起來票選&amp;url=http://star-award.fanily.tw/2015q4/" target="_blank"><span>WEIBO</span></a>
     </div>
     <div style="clear:both;"></div>
-    <div class="vote-banner">
+    <div class="vote-banner vote-banner-1">
         <a href="https://www.fanily.tw/post/11e57497e3e6e7329e1542010af01a54" target="_blank"><img src="img/vote-banner.png"></a>
+    </div>
+    <div class="vote-banner vote-banner-2">
+        <a href="https://www.fanily.tw/group/i-cheesecake" target="_blank"><img src="img/vote-banner-2.png"></a>
     </div>
 </div>
 
